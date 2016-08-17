@@ -4,8 +4,6 @@
 
     Send attachments to S3
 
-    :copyright: © 2012-2015 by Openlabs Technologies & Consulting (P) Limited
-    :license: BSD, see LICENSE for more details.
 """
 
 try:

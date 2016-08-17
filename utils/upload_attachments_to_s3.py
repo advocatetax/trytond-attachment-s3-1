@@ -5,8 +5,6 @@
 
     Uploads the existing attachments in a data folder to S3
 
-    :copyright: (c) 2012-2013 by Openlabs Technologies & Consulting (P) Limited
-    :license: BSD, see LICENSE for more details.
 """
 import os
 import warnings
