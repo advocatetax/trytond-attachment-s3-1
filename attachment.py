@@ -4,8 +4,6 @@
 
     Send attachments to S3
 
-    :copyright: © 2012-2015 by Openlabs Technologies & Consulting (P) Limited
-    :license: BSD, see LICENSE for more details.
 """
 
 try:
@@ -55,7 +53,7 @@ class Attachment:
         )
         bucket = s3_conn.get_bucket(config.get('attachment_s3', 'bucket_name'))
 
-        db_name = Transaction().cursor.dbname
+        db_name = Transaction().database.name
         format_ = Transaction().context.pop(
             '%s.%s' % (self.__name__, name), ''
         )
@@ -103,7 +101,7 @@ class Attachment:
 
         if value is None:
             return
-        cursor = Transaction().cursor
+        cursor = Transaction().connection.cursor()
         db_name = cursor.dbname
 
         if hashlib:
