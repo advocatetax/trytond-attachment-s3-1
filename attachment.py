@@ -102,7 +102,7 @@ class Attachment:
         if value is None:
             return
         cursor = Transaction().connection.cursor()
-        db_name = cursor.dbname
+        db_name = Transaction().database.name
 
         if hashlib:
             digest = hashlib.md5(value).hexdigest()
