@@ -104,7 +104,7 @@ class S3Binary(fields.Function):
                 try:
                     key = Key(bucket)
                     key.key = filename
-                    value = buffer(key.get_contents_as_string())
+                    value = bytearray(key.get_contents_as_string())
                 except S3ResponseError, exc:
                     logging.error(exc)
                     value = None
