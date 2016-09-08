@@ -42,7 +42,7 @@ class Attachment:
         The filename is built as '<DBNAME>/<FILENAME>' in the given S3 bucket
 
         :param name: name of field name
-        :return: Buffer of the file binary
+        :return: Bytearray of the file binary
         """
         if not config.has_section('attachment_s3'):
             return super(Attachment, self).get_data(name)
@@ -74,7 +74,7 @@ class Attachment:
                 k = Key(bucket)
                 k.key = filename
                 try:
-                    value = buffer(k.get_contents_as_string())
+                    value = bytearray(k.get_contents_as_string())
                 except S3ResponseError:
                     self.raise_user_error(
                         "no_such_key", error_args=(self.name, filename)
