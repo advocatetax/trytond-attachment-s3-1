@@ -140,11 +140,11 @@ class Attachment:
                     ])
                     key = Key(bucket)
                     key.key = filename
-                    key.set_contents_from_string(value[:])
+                    key.set_contents_from_string(bytes(value[:]))
         else:
             key = Key(bucket)
             key.key = filename
-            key.set_contents_from_string(value[:])
+            key.set_contents_from_string(bytes(value[:]))
         cls.write(attachments, {
             'digest': digest,
             'collision': collision,
