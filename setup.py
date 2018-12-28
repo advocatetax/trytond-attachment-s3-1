@@ -5,7 +5,7 @@ import re
 import os
 import sys
 from setuptools import setup, Command
-import ConfigParser
+from configparser import ConfigParser
 import unittest
 
 requires = ['boto']
@@ -44,7 +44,7 @@ class SQLiteTest(Command):
         sys.exit(-1)
 
 
-config = ConfigParser.ConfigParser()
+config = ConfigParser()
 config.readfp(open('tryton.cfg'))
 info = dict(config.items('tryton'))
 for key in ('depends', 'extras_depend', 'xml'):

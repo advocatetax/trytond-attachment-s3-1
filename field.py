@@ -97,7 +97,7 @@ class S3Binary(fields.Function):
                 try:
                     key = bucket.get_key(filename)
                     value = key.size
-                except S3ResponseError, exc:
+                except S3ResponseError as exc:
                     logging.error(exc)
                     value = 0
             else:
@@ -105,7 +105,7 @@ class S3Binary(fields.Function):
                     key = Key(bucket)
                     key.key = filename
                     value = bytearray(key.get_contents_as_string())
-                except S3ResponseError, exc:
+                except S3ResponseError as exc:
                     logging.error(exc)
                     value = None
             result[record.id] = value

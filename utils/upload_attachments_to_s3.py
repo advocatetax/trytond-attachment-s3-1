@@ -49,15 +49,18 @@ def upload(connection, bucket, data_path, database, new_db_name=None):
             s3_object.set_contents_from_filename(filepath)
 
             counter['uploaded'] += 1
-            print "[%d]: File %s uploaded to S3" % (
-                counter['uploaded'], filename
+            print(
+                "[%d]: File %s uploaded to S3" % (
+                    counter['uploaded'], filename
+                )
             )
-    print """Operation Completed
+    print("""Operation Completed
 
     Uploaded Documents: %(uploaded)d
     Ignored Documents: %(ignored)d
     Directories Traversed: %(directories)d
-    """ % (counter)
+    """ % (counter))
+
 
 if __name__ == '__main__':
     parser = OptionParser(

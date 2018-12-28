@@ -21,10 +21,9 @@ from trytond.transaction import Transaction
 from trytond.pool import PoolMeta
 
 __all__ = ['Attachment']
-__metaclass__ = PoolMeta
 
 
-class Attachment:
+class Attachment(metaclass=PoolMeta):
     "Attachment"
     __name__ = 'ir.attachment'
 

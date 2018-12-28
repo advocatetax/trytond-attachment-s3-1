@@ -1,13 +1,11 @@
 language: python
-virtualenv:
-  system_site_packages: true
 python:
-  - "2.7"
+  - "3.6"
 install: true  # override default install `pip install -r requirements.txt`
 script: make test-$TEST_CMD
 env:
-  - TEST_CMD="sqlite"
-  - TEST_CMD="flake8"
+  - TEST_CMD="sqlite" BOTO_CONFIG=/dev/null
+  - TEST_CMD="flake8" BOTO_CONFIG=/dev/null
 notifications:
   email:
     - ci-notify@fulfil.io

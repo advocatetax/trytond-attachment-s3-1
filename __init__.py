@@ -4,7 +4,7 @@
 
 """
 from trytond.pool import Pool
-from attachment import Attachment
+from .attachment import Attachment
 
 
 def register():
